@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/toolbar_add"
+        android:icon="@drawable/baseline_add_to_queue"
+        app:showAsAction="ifRoom" android:title="添加"/>
+
+    <item android:id="@+id/toolbar_scan"
+        android:icon="@drawable/vector_drawable_qrcode_scan"
+        app:showAsAction="ifRoom" android:title="扫描"/>
+
+</menu>

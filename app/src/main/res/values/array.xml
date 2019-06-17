@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="units">
+        <item>kg</item>
+        <item>N</item>
+    </string-array>
+    <string-array name="auto_shutdown">
+        <item>无</item>
+        <item>10分钟</item>
+        <item>20分钟</item>
+        <item>30分钟</item>
+    </string-array>
+    <string-array name="baudrate">
+        <item>9600</item>
+        <item>4800</item>
+        <item>2400</item>
+        <item>1200</item>
+    </string-array>
+    <string-array name="output_type">
+        <item>输出净重</item>
+        <item>输出毛重</item>
+        <item>输出皮重</item>
+    </string-array>
+    <string-array name="output_mode">
+        <item>不发送</item>
+        <item>连续发送</item>
+        <item>稳定时连续发送</item>
+        <item>命令方式</item>
+        <item>大屏幕显示</item>
+        <item>大屏幕和R232同时使用</item>
+    </string-array>
+    <string-array name="ele_save">
+        <item>无省电功能</item>
+        <item>有省电功能</item>
+        <item>无此项</item>
+    </string-array>
+    <string-array name="zero_follow_range">
+        <item>0.5e</item>
+        <item>1.0e</item>
+        <item>1.5e</item>
+        <item>2.0e</item>
+        <item>2.5e</item>
+        <item>3.0e</item>
+        <item>5.0e</item>
+        <item>禁止跟踪</item>
+    </string-array>
+    <string-array name="zero_set_range">
+        <item>2%FS</item>
+        <item>4%FS</item>
+        <item>10%FS</item>
+        <item>20%FS</item>
+        <item>100%FS</item>
+    </string-array>
+    <string-array name="zero_start_range">
+        <item>2%FS</item>
+        <item>4%FS</item>
+        <item>10%FS</item>
+        <item>20%FS</item>
+        <item>100%FS</item>
+        <item>禁止开机置零</item>
+    </string-array>
+    <string-array name="filter_time_speed">
+        <item>快</item>
+        <item>中</item>
+        <item>慢</item>
+    </string-array>
+    <string-array name="time_stable">
+        <item>快</item>
+        <item>中</item>
+        <item>慢</item>
+    </string-array>
+    <string-array name="amplitude_stable">
+        <item>低</item>
+        <item>中</item>
+        <item>高</item>
+    </string-array>
+    <string-array name="resolution_ratio">
+        <item>1</item>
+        <item>2</item>
+        <item>5</item>
+        <item>10</item>
+        <item>20</item>
+        <item>50</item>
+    </string-array>
+    <string-array name="dec_point">
+        <item>00.0000</item>
+        <item>000.000</item>
+        <item>0000.00</item>
+        <item>00000.0</item>
+        <item>000000.</item>
+    </string-array>
+</resources>
