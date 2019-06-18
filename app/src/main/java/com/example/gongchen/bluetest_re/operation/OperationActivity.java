@@ -561,7 +561,6 @@ public class OperationActivity extends BaseActivity implements View.OnClickListe
             }
 //            mClockView.setTitleDial(Integer.toString(int_weight));
 
-            int temp = 800; //TODO  临时数据
             if (((valid_data[0] >> 6) & 0x01) == 0x01) {
                 text_result.setText(Integer.toString(int_weight));
             mClockView.setTitleDial(Integer.toString(int_weight));
