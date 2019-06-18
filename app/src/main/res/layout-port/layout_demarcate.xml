@@ -68,20 +68,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
+            android:layout_toLeftOf="@+id/unitChildButton"
             android:layout_toRightOf="@+id/ccc"
             android:background="@color/white"
             android:hint="@string/ed_standard"
             android:inputType="number|numberDecimal"
-            android:layout_toLeftOf="@+id/unitChildButton"
             android:textColor="@color/color_333"
             android:textSize="15sp" />
 
         <TextView
             android:id="@+id/unitChildButton"
-            android:layout_alignParentRight="true"
             android:layout_width="wrap_content"
-            android:text="aaa"
             android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="aaa"
             android:textColor="@color/color_333"
             android:textSize="15sp" />
     </RelativeLayout>
@@ -168,18 +168,18 @@
                 android:id="@+id/text_btn_noload"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="6dp"
                 android:background="@drawable/bg_btn_gray_5f9f"
-                android:paddingBottom="2dp"
                 android:paddingLeft="5dp"
-                android:paddingRight="5dp"
                 android:paddingTop="2dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="2dp"
                 android:text="@string/no_load"
                 android:textColor="@color/bg1"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:visibility="gone" />
 
         </RelativeLayout>
 
@@ -222,14 +222,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/await"
                 android:textSize="14sp" />
-
-            <!--<TextView-->
-            <!--android:id="@+id/text_wending2"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginLeft="6dp"-->
-            <!--android:text="@string/stable"-->
-            <!--android:textSize="14sp" />-->
 
             <ImageView
                 android:id="@+id/text_wending2"
@@ -275,15 +267,203 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="6dp"
                 android:background="@drawable/bg_btn_gray_5f9f"
-                android:paddingBottom="2dp"
                 android:paddingLeft="5dp"
-                android:paddingRight="5dp"
                 android:paddingTop="2dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="2dp"
                 android:text="确认"
                 android:textColor="@color/bg1"
                 android:textSize="14sp" />
 
         </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_fifthsfixs"
+                android:textColor="@color/color_333"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_third_content"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_fifthseven"
+                android:textColor="@color/color_333"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/await"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/text_wending3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/gray" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:text="@string/lamp"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/text_num8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/text_fifthseight"
+                android:textColor="@color/color_333"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/text_num8"
+                android:text="@string/text_fifth_content"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/text_btn_fifths"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="6dp"
+                android:background="@drawable/bg_btn_gray_5f9f"
+                android:paddingLeft="5dp"
+                android:paddingTop="2dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="2dp"
+                android:text="确认"
+                android:textColor="@color/bg1"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_fifthsnine"
+                android:textColor="@color/color_333"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_third_content"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:gravity="center_vertical"
+            android:visibility="gone"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/first_ten"
+                android:textColor="@color/color_333"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/await"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/text_wendings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/gray" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:text="@string/lamp"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/color_333"
+                android:textSize="14sp"
+                android:layout_height="wrap_content"
+                android:text="@string/ok" />
+
+
+            <TextView
+                android:id="@+id/text_btn_fifthss"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="6dp"
+                android:background="@drawable/bg_btn_gray_5f9f"
+                android:paddingLeft="5dp"
+                android:paddingTop="2dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="2dp"
+                android:text="确认"
+                android:textColor="@color/bg1"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
     </LinearLayout>
 
 </LinearLayout>

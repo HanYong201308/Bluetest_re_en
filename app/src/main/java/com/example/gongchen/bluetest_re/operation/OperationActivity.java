@@ -394,6 +394,7 @@ public class OperationActivity extends BaseActivity implements View.OnClickListe
             Log.d("OperationActivity", "Header error");
             return 0;
         }
+
         if (receive_data[15] != (byte) 0x19) {
             Log.d("OperationActivity", "End error");
             return 0;
@@ -471,7 +472,9 @@ public class OperationActivity extends BaseActivity implements View.OnClickListe
 //        Log.d("OperationActivity", "no header");
 //        return 0;
     }
-
+    int int_weight = 0;
+    int int_full_weight;
+    int int_per_weight;
     public byte[] sent_data_pack(int marker, int type_marker) {
         byte[] sent_data = new byte[18];
         sent_data[0] = (byte) 0xFE;
@@ -545,55 +548,30 @@ public class OperationActivity extends BaseActivity implements View.OnClickListe
 
         //去掉帧头两位
         //去掉帧尾
-        int int_weight = (valid_data[3] & 0xFF)
-                | ((valid_data[4] & 0xFF) << 8)
-                | ((valid_data[5] & 0xFF) << 16);
 
-        //右边位移两位 是符号位   0x01负号  0x00正
-        if (((valid_data[0] >> 2) & 0x01) == 0x01) {
-            int_weight = -int_weight;
-        }
-        int temp = 800;
-        if (((valid_data[0] >> 6) & 0x01) == 0x01) {
-            text_result.setText(Integer.toString(int_weight));
-            mClockView.setTitleDial(Integer.toString(int_weight));
-
-
-
-            int i = int_weight / temp;
-            if (i != 0) {
-//                mClockView.setCompleteDegree(i);
-            }
-            text_all_price.setText(ddf1.format(unit_price * int_weight));
-        } else {
-            double weight_re = (double) int_weight / Math.pow(10., 5 - (int) valid_data[2]);
-            text_result.setText(Double.toString(weight_re));
-            mClockView.setTitleDial(Double.toString(weight_re));
-
-
-
-            LogUtil.e("weight_re：" + weight_re);
-            float num = (float) weight_re / temp * 100;
-            DecimalFormat fnum = new DecimalFormat("##0.0");
-            setCompleteDegree = fnum.format(num);
-            LogUtil.e("setCompleteDegree：" + setCompleteDegree);
-
-            timer.schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    Message message = handler.obtainMessage();
-                    message.what = 1;
-                    handler.sendMessage(message);
-                }
-            }, 500, 2000);
-
-            if (num != 0) {
-//                mClockView.setCompleteDegree(num);
-            }
-            text_all_price.setText(ddf1.format(unit_price * weight_re));
-        }
 
         if (frame_type == 0x01) {
+            int_weight = (valid_data[3] & 0xFF)
+                    | ((valid_data[4] & 0xFF) << 8)
+                    | ((valid_data[5] & 0xFF) << 16);
+
+            //右边位移两位 是符号位   0x01负号  0x00正
+            if (((valid_data[0] >> 2) & 0x01) == 0x01) {
+                int_weight = -int_weight;
+            }
+//            mClockView.setTitleDial(Integer.toString(int_weight));
+
+            int temp = 800; //TODO  临时数据
+            if (((valid_data[0] >> 6) & 0x01) == 0x01) {
+                text_result.setText(Integer.toString(int_weight));
+            mClockView.setTitleDial(Integer.toString(int_weight));
+                text_all_price.setText(ddf1.format(unit_price * int_weight));
+            } else {
+                double weight_re = (double) int_weight / Math.pow(10., 5 - (int) valid_data[2]);
+                text_result.setText(Double.toString(weight_re));
+            mClockView.setTitleDial(Double.toString(weight_re));
+                text_all_price.setText(ddf1.format(unit_price * weight_re));
+            }
             int int_tare_weight = (valid_data[6] & 0xFF)
                     | ((valid_data[7] & 0xFF) << 8)
                     | ((valid_data[8] & 0xFF) << 16);
@@ -607,25 +585,44 @@ public class OperationActivity extends BaseActivity implements View.OnClickListe
             powerV.setText(sb.toString());
             mClockView.setDevicePower((float) power);
         } else if (frame_type == 0x02) {
+            int_full_weight = (valid_data[3] & 0xFF)
+                    | ((valid_data[4] & 0xFF) << 8)
+                    | ((valid_data[5] & 0xFF) << 16);
+            int_per_weight = int_weight*100 / int_full_weight;
+            mClockView.setCompleteDegree(int_per_weight);
             int int_all_weight = (valid_data[6] & 0xFF)
                     | ((valid_data[7] & 0xFF) << 8)
                     | ((valid_data[8] & 0xFF) << 16);
             double all_weight_re = (double) int_all_weight / Math.pow(10., 5 - (int) valid_data[2]);
             text_all_weight.setText(Double.toString(all_weight_re));
-
             text_frequency.setText(Integer.toString((int) (valid_data[9] & 0xFF)));
+
+//            int int_full_weight = (valid_data[3] & 0xFF)
+//                    | ((valid_data[4] & 0xFF) << 8)
+//                    | ((valid_data[5] & 0xFF) << 16);
+//            double full_weight_re = (double) int_all_weight / Math.pow(10., 5 - (int) valid_data[2]);
+//            setCompleteDegree = (int) (full_weight_re / int_full_weight * 100);
+//
+//            timer.schedule(new TimerTask() {
+//                @Override
+//                public void run() {
+//                    Message message = handler.obtainMessage();
+//                    message.what = 1;
+//                    handler.sendMessage(message);
+//                }
+//            }, 500, 500);
         }
 
     }
 
-    String setCompleteDegree;
+    int setCompleteDegree;
     @SuppressLint("HandlerLeak")
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             if (msg.what == 1) {
-//                mClockView.setCompleteDegree(Float.parseFloat(setCompleteDegree));
+                mClockView.setCompleteDegree(setCompleteDegree);
             }
         }
     };
@@ -763,8 +760,4 @@ public class OperationActivity extends BaseActivity implements View.OnClickListe
         }
     }
 
-    public void aaaaaaa(View view) {
-        mClockView.setCompleteDegree(100f);
-//        mClockView.setTitleDial("10000");
-    }
 }

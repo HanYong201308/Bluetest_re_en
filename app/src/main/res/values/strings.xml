@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">物联网仪表</string>
 
     <string name="notifyTitle">提示</string>
@@ -43,6 +43,7 @@
     <string name="max_num">输入仪表量程</string>
     <string name="startcalibration">开始标定</string>
     <string name="first_step">第一步：</string>
+    <string name="first_ten" translatable="false">第十步：</string>
     <string name="await">请等待</string>
     <string name="stable">稳定</string>
     <string name="lamp">灯亮起</string>
@@ -54,6 +55,10 @@
     <string name="text_third_content">请在称体上加载标准砝码或者替代物品</string>
     <string name="text_fourthstep">第四步：</string>
     <string name="text_fifthstep">第五步：</string>
+    <string name="text_fifthsfixs" tools:ignore="MissingTranslation">第六步：</string>
+    <string name="text_fifthseven" tools:ignore="MissingTranslation">第七步：</string>
+    <string name="text_fifthseight" tools:ignore="MissingTranslation">第八步：</string>
+    <string name="text_fifthsnine" tools:ignore="MissingTranslation">第九步：</string>
     <string name="text_fifth_content">请点击确认完成本次标定</string>
     <string name="text_many_add">多段标定</string>
     <string name="text_add_content">以上标定无法满足精度要求时请点击</string>
@@ -97,4 +102,5 @@
     <string name="no">无</string>
     <string name="star">进入界面</string>
     <string name="skip">跳过</string>
+    <string name="ok" translatable="false">请点击确认完成标定</string>
 </resources>

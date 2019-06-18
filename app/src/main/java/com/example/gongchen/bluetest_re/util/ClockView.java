@@ -204,10 +204,7 @@ public class ClockView extends View {
         canvas.restore();
     }
 
-//    public void setTitlePaint(String monads) {
-//        monad = monads;
-//        invalidate();
-//    }
+
     private void drawTitleDial(Canvas canvas) {
         titlePaint.setColor(titleDialColor);
         titlePaint.setTextSize(titleDialSize);
@@ -219,28 +216,21 @@ public class ClockView extends View {
         canvas.drawText(monad, left / 2 + 33, 0, titlePaint);
         titlePaint.setColor(colorDialMiddle);
         titlePaint.setTextSize(valueTextSize);
-        canvas.drawText("设备电压:" + power +"V", 0, 0 + 50, titlePaint);
+        canvas.drawText("设备电压:" + power + "V", 0, 0 + 50, titlePaint);
     }
 
     private void drawNewpoint(Canvas canvas) {
 //        int currentDegree = (int) (currentValue * 2.7);
         canvas.rotate(135);
         for (int i = 0; i <= currentValue; i++) {     //一共需要绘制101个表针
-
-            if (i % 100 == 0) {     //长表针
-                pointerPaint.setColor(colorDialLower);
-                pointerPaint.setStrokeWidth(6);
-                canvas.drawLine(radiusDial, 0, radiusDial - strokeWidthDial - dp2px(20) - 20, 0, pointerPaint);
-//                drawPointerText(canvas, i);
-            } else {    //短表针
-                pointerPaint.setColor(colorDialHigh);
-                pointerPaint.setStrokeWidth(3);
-                canvas.drawLine(radiusDial - strokeWidthDial - 20, 0, radiusDial - strokeWidthDial - dp2px(20) - 20, 0, pointerPaint);
-            }
+            pointerPaint.setColor(colorDialHigh);
+            pointerPaint.setStrokeWidth(3);
+            canvas.drawLine(radiusDial - strokeWidthDial - 20, 0, radiusDial - strokeWidthDial - dp2px(20) - 20, 0, pointerPaint);
             canvas.rotate(2.7f);
         }
     }
-    //设置设备的重量
+
+    //设置称重重量
     public void setTitleDial(String titleDial) {
         this.titleDial = titleDial;
     }
@@ -250,14 +240,18 @@ public class ClockView extends View {
         monad = monads;
         invalidate();
     }
+
     //设置设备电压
     public void setDevicePower(float text) {
         power = text;
         invalidate();
     }
+
+    private float degrees = 0f;
+    //设置转盘的百分比
     public void setCompleteDegree(float degree) {
 
-        ValueAnimator animator = ValueAnimator.ofFloat(0, degree);
+        ValueAnimator animator = ValueAnimator.ofFloat(degrees, degree);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
@@ -268,6 +262,7 @@ public class ClockView extends View {
         animator.setInterpolator(new AccelerateDecelerateInterpolator());
         animator.setDuration(animPlayTime);
         animator.start();
+        degrees = degree;
     }
 
     protected int dp2px(int dpVal) {

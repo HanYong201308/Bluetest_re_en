@@ -2,6 +2,8 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 28
+    buildToolsVersion '28.0.2'
+
     lintOptions {
         checkReleaseBuilds false
         abortOnError false
@@ -18,7 +20,7 @@ android {
         release {
             keyAlias 'key0'
             keyPassword '123456'
-            storeFile file('D:/Bluetest_re/key.jks')
+            storeFile file('D:/StudioProjects/Bluetest_re/key.jks')
             storePassword '123456'
         }
     }
@@ -33,7 +35,6 @@ android {
             url "https://jitpack.io"
         }
     }
-    buildToolsVersion '28.0.2'
 }
 
 dependencies {
